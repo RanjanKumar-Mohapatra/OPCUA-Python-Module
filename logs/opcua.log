@@ -1,0 +1,11 @@
+2025-04-15 12:12:33,980 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-04-15 16:48:57,121 - ERROR - Error: 
+2025-04-15 16:48:57,164 - INFO - Disconnected from OPC UA Server
+2025-04-15 16:49:02,219 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-04-15 18:21:27,538 - ERROR - Error: "The session id is not valid."(BadSessionIdInvalid)
+2025-04-16 08:55:53,855 - INFO - Monitor OPC UA Tags Module Started.
+2025-04-16 08:55:53,867 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-04-16 14:29:07,592 - INFO - Monitor OPC UA Tags Module Started.
+2025-04-16 14:29:07,619 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-04-16 14:30:44,963 - INFO - Disconnected from OPC UA Server
+2025-04-16 14:30:50,050 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320

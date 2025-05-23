@@ -1,0 +1,139 @@
+asyncio
+requests
+pyyaml
+opcua
+pandas
+# psycopg2
+psycopg2-binary
+openpyxl
+
+# Library needs to be installed
+# pip install pyyaml
+# pip install opcua
+# pip install pandas
+# pip install psycopg2
+# pip install openpyxl
+
+# Install the Below library if required at the time of Docker Build
+# pip install psycopg2-binary
+
+
+# 4. Ensure VS Code Uses the Correct Python Interpreter
+# If using VS Code, make sure it's using the correct Python version:
+
+# Open VS Code.
+# Press Ctrl + Shift + P and type "Python: Select Interpreter".
+# Choose the Python version where pyserial is installed.
+# Restart VS Code and try running the script again.
+
+
+# DOCKER IMAGE CREATION COMMANDS
+# -----------------------------------------------------
+# CReating postgres SQL database image.
+# -------------------------------------
+# start a postgres instance
+# -------------------------
+# Run : docker pull postgres
+# docker run --name rapidsms_db_docker -e POSTGRES_PASSWORD=sa123 -p 5433:5432 -d postgres
+
+# Docker Commands to create a build and image of a Python module
+# ---------------------------------------------------------------
+# To build a python module(Run's in VS Code): docker build -t modbus-python-module .
+# Provide proper docker file path if the system not able to find it: docker build -t rapid-sms-python-module -f C:\Modbus TCP SMS App\5. Rapid Python SMS App\Rapid_SMS_Module_W\.venv\Dockerfile .
+# To build and update a docker image(Run's in VS Code): docker build --no-cache -t modbus-python-module .
+# Check Running Containers(CMD): docker ps
+# Check Docker Logs(CMD): docker logs my_container
+# Check Images(CMD): docker images
+# To run the docker image with exposing port 502: docker run -p 502:502 --name <container name> <image name>
+
+
+
+# OTHER DOCKER COMMANDS
+# Check All Containers (Including Stopped) :-   docker ps -a
+
+# Stop a Running Container :-    docker stop <container_id>
+# Restart a Stopped Container :-    docker start <container_id>
+# Remove a Container :-     docker rm <container_id>
+
+# If necessary, restart the container:-    docker restart <container_id>
+
+# If your PostgreSQL container is running but not accessible, make sure it's correctly exposing port 5432.
+# Run:-   docker inspect <container_id> | grep "IPAddress"
+
+# To confirm it's listening on all interfaces, check the container’s docker-compose.yml or run:
+# docker run --name postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+
+# Inside the container, access the PostgreSQL shell:
+# docker exec -it <container_id> bash
+
+# Then open PostgreSQL configuration:
+# nano /var/lib/postgresql/data/postgresql.conf
+
+# Save and restart PostgreSQL:
+# service postgresql restart
+
+# If PostgreSQL is still not accessible, check UFW (firewall) rules:
+# sudo ufw allow 5432/tcp
+# sudo ufw reload
+
+
+
+# IMPORTANT NOTE: Packages for distributions that are no longer supported will be archived to https://pgadmin-archive.postgresql.org/, from where they can be manually downloaded. The archive site cannot be used as a repository!
+# To use this repository, run the following commands:
+
+# # Setup the repository
+
+# # Install the public key for the repository (if not done previously):
+# curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+
+# # Create the repository configuration file:
+# sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+
+# # Install pgAdmin
+
+# # Install for both desktop and web modes:
+# sudo apt install pgadmin4
+
+# # Install for desktop mode only:
+# sudo apt install pgadmin4-desktop
+
+# # Install for web mode only: 
+# sudo apt install pgadmin4-web 
+
+# # Configure the webserver, if you installed pgadmin4-web:
+# sudo /usr/pgadmin4/bin/setup-web.sh
+
+
+
+# INSTALL PYTHON SPECIFIC VERSION ON UBUNTU OS
+# If you must install Python 3.9.4 specifically, compile it from source:
+
+# sudo apt update
+# sudo apt install -y build-essential libssl-dev libffi-dev \
+#     libbz2-dev libsqlite3-dev libreadline-dev liblzma-dev zlib1g-dev \
+#     libncurses5-dev libgdbm-dev tk-dev wget
+
+# cd /usr/src
+# sudo wget https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tgz
+# sudo tar xvf Python-3.9.4.tgz
+# cd Python-3.9.4
+# sudo ./configure --enable-optimizations
+# sudo make -j$(nproc)
+# sudo make altinstall
+
+# Verify the installation:
+# python3.9 --version
+
+# If Python 3.12 was the default version, you need to set Python 3.9 as the default:
+# sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
+# sudo update-alternatives --config python3
+
+# Then, check the version:
+# python3 --version
+
+
+
+# Activate the Virtual Environment (Optional)
+# If .venv is not created, you can create one using:
+# python3 -m venv .venv
+# source .venv/bin/activate

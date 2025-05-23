@@ -1,0 +1,17 @@
+OPC_SERVER_URL: opc.tcp://127.0.0.1:49320
+
+db_connection:
+  # connection_string: "DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=D:\\RapidSMSApp.mdb;UID=Admin;PWD=RapidEPL" 
+  # connection_string_postgre: "postgresql://postgres:sa123@192.168.31.177:5433/RapidSMS_Db"
+  connection_string_postgre: "postgresql://postgres:sa123@localhost:5433/RapidSMS_Db" 
+
+polling_interval: 1.0  # seconds
+
+mobile_number:
+  - number: 1
+    name: "Ginda"
+    ph_number: "+6587494917"
+
+  # - number: 2
+  #   name: "Sujay"
+  #   ph_number: "+6597848367"
