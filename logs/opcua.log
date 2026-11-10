@@ -9,3 +9,100 @@
 2025-04-16 14:29:07,619 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
 2025-04-16 14:30:44,963 - INFO - Disconnected from OPC UA Server
 2025-04-16 14:30:50,050 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-07-11 12:15:40,658 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-11 12:29:35,384 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-11 12:36:51,012 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-11 12:40:18,646 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-11 12:48:53,800 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-22 15:48:26,697 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-22 15:48:38,819 - INFO - Monitor OPC UA Tags Module Started.
+2025-07-22 15:50:50,933 - INFO - Successfully imported 2 registers into registers.yml
+2025-07-22 15:50:55,068 - INFO - Monitor OPC UA Tags Module Started.
+2025-07-22 15:51:05,435 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-08-01 10:32:41,324 - INFO - Reading register data from file: RegistersList.xlsx
+2025-08-01 10:34:34,915 - INFO - Reading register data from file: RegistersList.xlsx
+2025-08-01 10:34:44,163 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-01 10:48:02,377 - INFO - Reading register data from PostgreSQL database.
+2025-08-01 10:52:45,215 - INFO - Reading register data from PostgreSQL database.
+2025-08-01 10:53:08,119 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-22 09:48:23,170 - INFO - Reading register data from PostgreSQL database.
+2025-08-22 09:48:27,228 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-22 09:58:57,139 - INFO - Reading register data from PostgreSQL database.
+2025-08-22 09:58:57,303 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-22 10:01:28,773 - INFO - Reading register data from file: RegistersList.xlsx
+2025-08-22 10:01:31,658 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-22 10:01:42,651 - INFO - Monitor OPC UA Tags Module Started.
+2025-08-22 10:01:49,792 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-08-22 10:03:04,141 - INFO - Reading register data from file: RegistersList.xlsx
+2025-08-22 10:03:04,652 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-22 10:03:04,658 - INFO - Monitor OPC UA Tags Module Started.
+2025-08-22 10:03:04,674 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-08-22 12:07:39,798 - INFO - Reading register data from file: RegistersList.xlsx
+2025-08-22 12:07:41,109 - INFO - Successfully imported 6 registers into registers.yml
+2025-08-22 12:07:41,142 - INFO - Monitor OPC UA Tags Module Started.
+2025-08-22 12:07:41,358 - INFO - Connected to OPC UA Server: opc.tcp://127.0.0.1:49320
+2025-10-09 17:19:59,841 - INFO - Reading register data from PostgreSQL database.
+2025-10-16 10:02:32,350 - INFO - Reading register data from PostgreSQL database.
+2025-10-16 10:04:05,647 - INFO - Reading register data from PostgreSQL database.
+2025-10-16 10:04:11,894 - INFO - Successfully imported 6 registers into registers.yml
+2025-10-16 10:04:18,119 - INFO - Monitor OPC UA Tags Module Started.
+2025-10-16 10:04:30,796 - INFO - Connected to OPC UA Server: opc.tcp://192.168.1.213:49320
+2026-01-13 16:39:18,966 - INFO - Reading register data from PostgreSQL database.
+2026-01-13 16:39:20,776 - INFO - Successfully imported 3 registers into registers.yml
+2026-01-13 16:39:33,436 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-13 16:39:43,271 - INFO - Connected to OPC UA Server: opc.tcp://192.168.1.213:49320
+2026-01-14 11:39:52,013 - INFO - Reading register data from PostgreSQL database.
+2026-01-14 11:39:59,369 - INFO - Successfully imported 3 registers into registers.yml
+2026-01-14 11:48:08,810 - INFO - Reading register data from PostgreSQL database.
+2026-01-14 11:48:12,101 - INFO - Successfully imported 3 registers into registers.yml
+2026-01-14 11:51:52,614 - INFO - Reading register data from PostgreSQL database.
+2026-01-14 11:51:54,488 - INFO - Successfully imported 3 registers into registers.yml
+2026-01-14 11:52:50,175 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-14 16:44:21,246 - INFO - Reading register data from PostgreSQL database.
+2026-01-14 16:44:25,896 - INFO - Successfully imported 3 registers into registers.yml
+2026-01-14 16:44:38,971 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-14 16:44:44,615 - INFO - Connected to OPC UA server
+2026-01-16 20:32:38,412 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 20:36:21,473 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 20:38:11,317 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:02:49,621 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:03:21,880 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 21:04:06,071 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:04:12,286 - INFO - Connected to OPC UA server
+2026-01-16 21:04:43,553 - ERROR - Error: 
+2026-01-16 21:04:48,789 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:04:49,280 - INFO - Connected to OPC UA server
+2026-01-16 21:08:49,278 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:08:51,013 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 21:09:43,603 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:09:48,068 - INFO - Connected to OPC UA server
+2026-01-16 21:19:49,313 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:19:51,697 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 21:20:07,017 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:20:10,180 - INFO - Connected to OPC UA server
+2026-01-16 21:27:01,684 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:27:03,505 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 21:27:10,322 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:27:10,872 - INFO - Connected to OPC UA server
+2026-01-16 21:36:04,170 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:36:05,507 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 21:36:10,629 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:36:11,633 - INFO - Connected to OPC UA server
+2026-01-16 21:51:20,740 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 21:51:22,776 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 21:51:27,921 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:51:28,474 - INFO - Connected to OPC UA server
+2026-01-16 21:52:20,679 - ERROR - Error: 
+2026-01-16 21:52:25,890 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 21:52:26,601 - INFO - Connected to OPC UA server
+2026-01-16 22:02:12,530 - INFO - Analog : Device1.PressurePump13, Value : 5.25, Lo Lo Alarm (LL)
+2026-01-16 22:07:45,608 - INFO - Reading register data from PostgreSQL database.
+2026-01-16 22:07:46,783 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-16 22:07:46,799 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-16 22:07:47,364 - INFO - Connected to OPC UA server
+2026-01-16 22:07:47,970 - INFO - Analog : Device1.PressurePump13, Value : 5.25, Lo Lo Alarm (LL)
+2026-01-18 21:34:51,503 - INFO - Reading register data from PostgreSQL database.
+2026-01-18 21:34:52,775 - INFO - Successfully imported 4 registers into registers.yml
+2026-01-18 21:34:53,040 - INFO - Monitor OPC UA Tags Module Started.
+2026-01-18 21:34:54,395 - INFO - Connected to OPC UA server
+2026-01-18 21:41:26,160 - INFO - Reading register data from PostgreSQL database.

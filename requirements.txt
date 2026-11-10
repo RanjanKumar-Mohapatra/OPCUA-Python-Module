@@ -34,19 +34,66 @@ openpyxl
 # start a postgres instance
 # -------------------------
 # Run : docker pull postgres
+# Rerunning DB Image, create a network : docker network create my-network
 # docker run --name rapidsms_db_docker -e POSTGRES_PASSWORD=sa123 -p 5433:5432 -d postgres
+# WITH NETWORK : sudo docker run -d --restart always --name rapidsms_db_docker --network my-network -e POSTGRES_PASSWORD=sa123 -p 5432:5432 -d postgres
 
 # Docker Commands to create a build and image of a Python module
 # ---------------------------------------------------------------
-# To build a python module(Run's in VS Code): docker build -t modbus-python-module .
-# Provide proper docker file path if the system not able to find it: docker build -t rapid-sms-python-module -f C:\Modbus TCP SMS App\5. Rapid Python SMS App\Rapid_SMS_Module_W\.venv\Dockerfile .
-# To build and update a docker image(Run's in VS Code): docker build --no-cache -t modbus-python-module .
+# To build a python module(Run's in VS Code): docker build -t rapid-opcua-client .
+# Build for ARM64 System                    : docker buildx build --platform linux/arm64 -t rapid-opcua-client:arm64 --load .
+
+# Provide proper docker file path if the system not able to find it: docker build -t rapid-opcua-client -f C:\Modbus TCP SMS App\5. Rapid Python SMS App\Rapid_SMS_Module_W\.venv\Dockerfile .
+# To build and update a docker image(Run's in VS Code): docker build --no-cache -t rapid-opcua-client .
 # Check Running Containers(CMD): docker ps
 # Check Docker Logs(CMD): docker logs my_container
 # Check Images(CMD): docker images
 # To run the docker image with exposing port 502: docker run -p 502:502 --name <container name> <image name>
 
+# DOCKER COMMAND TO RUN A DOCKER IMAGE
+# To run a Docker Image : sudo docker run --rm rapid-opcua-client
+# Modify your docker run command to pass the USB 4G Modem device 
+#   to the container : sudo docker run --privileged --device=/dev/ttyUSB2 -it rapid-opcua-client
 
+# DOCKER Command to run OPCUA Python Module DOCKER image with PARAMETER's (Windows System)
+    # docker run -d --restart always -e OPCUA_URL="opc.tcp://100.120.39.70:49320" -e POSTGRES_URL="postgresql://postgres:sa123@172.17.0.2:5432/RapidSMS_Db" -e REGISTER_FILE="C:\RegistersList.xlsx" -v "C:\" rapid-opcua-client
+
+# DOCKER Command to run OPCUA Python Module DOCKER image with PARAMETER's (Linux System)
+    #  Accessing DB with IP :  sudo docker run -d --restart always  -v "/home/rapid:/app/data"  -e OPCUA_URL="opc.tcp://10.0.1.20:4862"  -e POSTGRES_URL="postgresql://postgres:sa123@172.17.0.2:5432/RapidSMS_Db"  -e REGISTER_FILE="/app/data/RegistersList.xlsx"  rapid-opcua-client
+    #  Accessing DB with Name :  sudo docker run -d --restart always --network my-network  -v "/home/rapid:/app/data"  -e OPCUA_URL="opc.tcp://10.0.1.20:4862"  -e POSTGRES_URL="postgresql://postgres:sa123@rapidsms_db_docker:5432/RapidSMS_Db"  -e REGISTER_FILE="/app/data/RegistersList.xlsx"  rapid-opcua-client
+# DOCKER Command to run OPCUA Python Module DOCKER on an EDGE IOT DEVICE (Linux System)
+    # sudo docker run -d --restart always --network my-network  -v "/home/root:/app/data"  -e OPCUA_URL="opc.tcp://192.168.1.213:49320"  -e POSTGRES_URL="postgresql://postgres:sa123@rapidsms_db_docker:5432/RapidSMS_Db"  rapid-opcua-client:arm64
+
+# DOCKER BACKUP AND RESTORE COMMANDS (AND RUN THE IMAGE)
+    # docker save -o D:\docker_image_backup\rapid-read-outlook-email.tar rapid-read-outlook-email:arm64
+    # Go to the file path : cd /home/root/rapidnotifier
+    # docker load -i rapid-read-outlook-email.tar
+    # Return back from the folder : cd
+    # sudo docker run -d --restart always rapid-read-outlook-email:arm64
+
+# Provide proper docker file path if the system not able to find it: docker build -t rapid-read-outlook-email -f C:\Modbus TCP SMS App\5. Rapid Python SMS App\Rapid_SMS_Module_W\.venv\Dockerfile .
+# To build and update a docker image(Run's in VS Code): docker build --no-cache -t rapid-read-outlook-email .
+# Check Running Containers(CMD): docker ps
+# Check Docker Logs(CMD): docker logs my_container
+# Check Images(CMD): docker images
+# To run the docker image with exposing port 502: docker run -p 502:502 --name <container name> <image name>
+
+# Command to run OPCUA Python Module DOCKER image with PARAMETER's (Windows System)
+#   docker run -d --restart always -e POSTGRES_URL="postgresql://postgres:sa123@172.17.0.2:5432/RapidSMS_Db" -e USER_FILE="C:\WhatsApp_Receivers.xlsx" -v "C:\" rapid-read-outlook-email
+
+# Command to run OPCUA Python Module DOCKER image with PARAMETER's (Linux System)
+#  Accessing DB with IP : sudo docker run -d --restart always  -v "/home/rapid:/app/data"  -e POSTGRES_URL="postgresql://postgres:sa123@172.17.0.2:5432/RapidSMS_Db"  -e USER_FILE="/app/data/WhatsApp_Receivers.xlsx"  rapid-read-outlook-email
+#  Accessing DB with Name : sudo docker run -d --restart always --network my-network -v "/home/rapid:/app/data" -e POSTGRES_URL="postgresql://postgres:sa123@rapidsms_db_docker:5432/RapidSMS_Db"  -e USER_FILE="/app/data/WhatsApp_Receivers.xlsx"  rapid-read-outlook-email
+
+
+# DOCKER COMMAND TO RUN A DOCKER IMAGE
+# To run a Docker Image : sudo docker run --rm rapid-read-outlook-email
+# Modify your docker run command to pass the USB device 
+#   to the container : sudo docker run --privileged --device=/dev/ttyUSB2 rapid-read-outlook-email
+
+# TO STOP MODEMMANAGER ON A UBUNTU SYSTEM
+# STOP MODEM MANAGER : sudo systemctl stop ModemManager
+# START MODEM MANAGER : sudo systemctl restart ModemManager
 
 # OTHER DOCKER COMMANDS
 # Check All Containers (Including Stopped) :-   docker ps -a
@@ -54,6 +101,22 @@ openpyxl
 # Stop a Running Container :-    docker stop <container_id>
 # Restart a Stopped Container :-    docker start <container_id>
 # Remove a Container :-     docker rm <container_id>
+
+# If necessary, restart the container:-    docker restart <container_id>
+
+# DOCKER CONTAINER IP ADDRESS :-   docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <container_name_or_id> 
+
+# TO STOP MODEMMANAGER ON A UBUNTU SYSTEM
+# STOP MODEM MANAGER : sudo systemctl stop ModemManager
+# START MODEM MANAGER : sudo systemctl restart ModemManager
+
+# OTHER DOCKER COMMANDS
+# Check All Containers (Including Stopped) :-   docker ps -a
+
+# Stop a Running Container :-    docker stop <container_id>
+# Restart a Stopped Container :-    docker start <container_id>
+# Remove a Container :-     docker rm <container_id>
+# Remove a Docker Image :-  docker rmi <image name / id>
 
 # If necessary, restart the container:-    docker restart <container_id>
 
@@ -136,4 +199,120 @@ openpyxl
 # Activate the Virtual Environment (Optional)
 # If .venv is not created, you can create one using:
 # python3 -m venv .venv
-# source .venv/bin/activate
+# source .venv/bin/activate     (Linux)
+# .venv\Scripts\activate            (Windows)
+
+
+#=====================================================================================
+# DATABASE TABLE SCRIPT (RapidSMS_Db)
+# CREATE TABLE IF NOT EXISTS public.sms_log
+# (
+#     sms_log_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+#     sms_time timestamp without time zone NOT NULL DEFAULT now(),
+#     message text COLLATE pg_catalog."default" NOT NULL,
+#     person_name text COLLATE pg_catalog."default" NOT NULL,
+#     mobile_number text COLLATE pg_catalog."default" NOT NULL,
+#     sms_status integer NOT NULL DEFAULT 0,
+#     user_group text COLLATE pg_catalog."default",
+#     CONSTRAINT sms_log_pkey PRIMARY KEY (sms_log_id)
+# )
+
+# TABLESPACE pg_default;
+
+# ALTER TABLE IF EXISTS public.sms_log
+#     OWNER to postgres;
+
+# ***********************************************
+
+# CREATE TABLE IF NOT EXISTS public.user_details
+# (
+#     user_id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+#     user_name text COLLATE pg_catalog."default" NOT NULL,
+#     ph_number text COLLATE pg_catalog."default" NOT NULL,
+#     emal_id text COLLATE pg_catalog."default" NOT NULL,
+#     user_group text COLLATE pg_catalog."default",
+#     created_at timestamp without time zone DEFAULT now(),
+#     CONSTRAINT user_details_pkey PRIMARY KEY (user_id)
+# )
+
+# TABLESPACE pg_default;
+
+# ALTER TABLE IF EXISTS public.user_details
+#     OWNER to postgres;
+
+# ***********************************************
+
+# CREATE TABLE IF NOT EXISTS public.configuration
+# (
+#     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+#     config_key text COLLATE pg_catalog."default" NOT NULL,
+#     config_value text COLLATE pg_catalog."default" NOT NULL,
+#     updated_at timestamp without time zone DEFAULT now(),
+#     CONSTRAINT configuration_pkey PRIMARY KEY (id),
+#     CONSTRAINT configuration_config_key_key UNIQUE (config_key)
+# )
+
+# TABLESPACE pg_default;
+
+# ALTER TABLE IF EXISTS public.configuration
+#     OWNER to postgres;
+
+# ***********************************************
+
+# CREATE TABLE IF NOT EXISTS public.error_log
+# (
+#     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+#     error_time timestamp without time zone DEFAULT now(),
+#     error_details text COLLATE pg_catalog."default",
+#     CONSTRAINT error_log_pkey PRIMARY KEY (id)
+# )
+
+# TABLESPACE pg_default;
+
+# ALTER TABLE IF EXISTS public.error_log
+#     OWNER to postgres;
+
+# ***********************************************
+
+# CREATE TABLE IF NOT EXISTS public.registers
+# (
+#     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+#     address text COLLATE pg_catalog."default" NOT NULL,
+#     trigger_value text COLLATE pg_catalog."default" NOT NULL,
+#     normal_value text COLLATE pg_catalog."default" NOT NULL,
+#     trigger_message text COLLATE pg_catalog."default",
+#     normal_message text COLLATE pg_catalog."default",
+# 	user_group text COLLATE pg_catalog."default",
+#     created_at timestamp without time zone DEFAULT now(),
+#     CONSTRAINT registers_pkey PRIMARY KEY (id),
+#     CONSTRAINT registers_address_key UNIQUE (address)
+# )
+
+# TABLESPACE pg_default;
+
+# ALTER TABLE IF EXISTS public.registers
+#     OWNER to postgres;
+
+# ***********************************************
+
+# CREATE TABLE IF NOT EXISTS public.sms_log_send_history
+# (
+#     id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+#     sms_time timestamp without time zone NOT NULL DEFAULT now(),
+# 	sms_log_id bigint not null,
+#     message text COLLATE pg_catalog."default" NOT NULL,
+#     person_name text COLLATE pg_catalog."default",
+#     mobile_number text COLLATE pg_catalog."default",
+#     sms_status integer NOT NULL DEFAULT 1,
+#     email_id text COLLATE pg_catalog."default",
+#     email_status integer NOT NULL DEFAULT 1,
+#     user_group text COLLATE pg_catalog."default",
+#     CONSTRAINT sms_log_send_history_pkey PRIMARY KEY (id)
+# )
+
+# TABLESPACE pg_default;
+
+# ALTER TABLE IF EXISTS public.sms_log_send_history
+#     OWNER to postgres;
+
+# ===============================================================================================

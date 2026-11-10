@@ -1,10 +1,10 @@
 # Use an official Python runtime as a base image
 # FROM arm32v7/python:3.9.4-slim
-FROM python:3.9.4-slim
+FROM python:3.12.7-slim
 
 # Set the working directory inside the container
-WORKDIR /app
-RUN apt update -y && apt install build-essential libssl-dev libffi-dev python-dev rustc -y && python -m ensurepip --upgrade
+WORKDIR /sms-app
+RUN apt update -y && apt install build-essential libssl-dev libffi-dev python3-dev rustc -y && python3 -m ensurepip --upgrade
 
 # Copy everything to the container
 COPY . .
@@ -24,5 +24,5 @@ RUN pip install -r requirements.txt
 # COPY . .
 
 # Define the command to run the module
-CMD ["python", "opcua-monitor.py"]
+CMD ["python3", "opcua-monitor.py"]
 # CMD ["python3", "-u", "./opcua-monitor.py"]
